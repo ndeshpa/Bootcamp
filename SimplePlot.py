@@ -14,11 +14,7 @@ if(len(sys.argv) == 1):
     print("Please enter the complete path of the csv file. Ex: C:/your/folder/name/filename.csv")
     sys.exit
 else:
-    # set the figure size
-    plt.rcParams['figure.figsize']=(20,10) 
-    # using the fivethirtyeight matplotlib theme
     #Set up Fonts for the text on the plot
-    plt.style.use('fivethirtyeight')
     font = {'family' : 'normal',
         'weight' : 'bold',
         'size'   : 24}
@@ -37,9 +33,8 @@ else:
     summed_data=seqs['Sequences'].resample('A').sum()
     print(summed_data)
 
-    ax1 = plt.subplot2grid((1,1), (0,0))
-    ax1.set_title('Genbank Annual Sequence Submissions')
-    ax1.get_yaxis().get_major_formatter().set_scientific(False)
-    summed_data.plot(color='r')
+    ax=summed_data.plot(color='r')
+    ax.get_yaxis().get_major_formatter().set_scientific(False)
+    ax.set_title('Genbank Annual Sequence Submissions') 
     plt.legend()
     plt.show()
