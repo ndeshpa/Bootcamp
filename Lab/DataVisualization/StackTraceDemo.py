@@ -18,3 +18,4 @@ def func3():
     raise Exception("Raising exception in func3")
     
 func1("Calling func1")
+
